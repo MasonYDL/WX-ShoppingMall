@@ -10,20 +10,22 @@ const productList = [
     src4: "/images/xigua4.jpg",
     src5: "/images/xigua1.jpg",
     src6: "/images/xigua2.jpg",
-    classid: 1
+    classid: 1,
+    num: 1
   },
   {
     name: "青菜",
     id: 4,
     price: 5.00,
-    src: "/images/caomei.jpg",
-    src1: "/images/xigua1.jpg",
-    src2: "/images/xigua2.jpg",
-    src3: "/images/xigua3.jpg",
-    src4: "/images/xigua4.jpg",
-    src5: "/images/xigua1.jpg",
-    src6: "/images/xigua2.jpg",
-    classid: 1
+    src: "/images/qingcai.jpg",
+    src1: "/images/qingcai1.jpg",
+    src2: "/images/qingcai2.jpg",
+    src3: "/images/qingcai3.jpg",
+    src4: "/images/qingcai1.jpg",
+    src5: "/images/qingcai3.jpg",
+    src6: "/images/qingcai2.jpg",
+    classid: 1,
+    num: 1
   },
   {
     name: "西瓜",
@@ -36,7 +38,8 @@ const productList = [
     src4: "/images/xigua4.jpg",
     src5: "/images/xigua1.jpg",
     src6: "/images/xigua2.jpg",
-    classid: 2
+    classid: 2,
+    num: 1
   },
   {
     name: "草莓",
@@ -49,7 +52,8 @@ const productList = [
     src4: "/images/xigua4.jpg",
     src5: "/images/xigua1.jpg",
     src6: "/images/xigua2.jpg",
-    classid: 2
+    classid: 2,
+    num: 1
   },
   {
     name: "猪肉",
@@ -62,7 +66,8 @@ const productList = [
     src4: "/images/xigua4.jpg",
     src5: "/images/xigua1.jpg",
     src6: "/images/xigua2.jpg",
-    classid: 3
+    classid: 3,
+    num: 1
   },
   {
     name: "牛肉",
@@ -75,7 +80,8 @@ const productList = [
     src4: "/images/xigua4.jpg",
     src5: "/images/xigua1.jpg",
     src6: "/images/xigua2.jpg",
-    classid: 3
+    classid: 3,
+    num: 1
   },
   {
     name: "鲫鱼",
@@ -88,7 +94,8 @@ const productList = [
     src4: "/images/xigua4.jpg",
     src5: "/images/xigua1.jpg",
     src6: "/images/xigua2.jpg",
-    classid: 4
+    classid: 4,
+    num: 1
   },
   {
     name: "鲤鱼",
@@ -101,15 +108,16 @@ const productList = [
     src4: "/images/xigua4.jpg",
     src5: "/images/xigua1.jpg",
     src6: "/images/xigua2.jpg",
-    classid: 4
+    classid: 4,
+    num: 1
   }
 ]
 
 const classList = [
   {
     id: 1,
-    name: "精品好物",
-    src:"/images/精品好物.jpg"
+    name: "精选好物",
+    src:"/images/精选好物.jpg"
 
   },
   {

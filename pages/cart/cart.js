@@ -7,21 +7,42 @@ Page({
     totalprice:0, //总价，初始为0
     productList: [], //购物车列表
     hasList: false, //列表是否有数据
-    selectAllStatus: true, //全选状态，默认全选
+    selectAllStatus: false, //全选状态，默认全选
+    carts: [],
+    //number:0,//商品数量
   },
+  //获取商品列表,计算总价
+  getCart: function () {
+    let info = wx.getStorageInfoSync()
+    let keys = info.keys
+    let num = keys.length
 
+    let myCart = [];
+    for (var i = 0; i < num; i++) {
+      let obj = wx.getStorageSync(keys[i])
+      console.log(obj)
+      myCart.push(obj)
+    }
+    console.log(typeof myCart)
+    this.setData({
+      carts: myCart,
+      hasList: true
+    });
+    this.getTotalPrice();
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
+    /* this.setData({
       hasList: true,
       carts:[
-        { id: 1, title: '西瓜', image: '/images/xigua1.jpg', num: 4, price: 0.01, selected: true},
-        { id: 2, title: 'timg', image: '/images/timg.jpg', num: 1, price: 0.03, selected: true }
+        { id: 1, name: '西瓜', src: '/images/xigua1.jpg', num: 4, price: 0.01, selected: true},
+        { id: 2, name: 'timg', src: '/images/timg.jpg', num: 1, price: 0.03, selected: true }
       ]
     });
-    this.getTotalPrice();
+    this.getTotalPrice(); */
+    this.getCart();
   },
   /**
     * 当前商品选中事件
@@ -126,45 +147,3 @@ Page({
   }
 
 });
-/*
-  getCart:function(){
-    let info = wx.getStorageInfoSync()
-    let keys = info.keys
-    let num = keys.length
-
-    let myCart = [];
-    for (var i = 0; i < num; i++) {
-      let obj = wx.getStorageSync(keys[i])
-      myCart.push(obj)
-    }
-    this.setData({
-      productList: myCart,
-      number: num
-    })
-
-  },
-
-  checkedChange(e){
-    var priceSum=0;
-    var id = e.currentTarget.id;
-    var num = e.detail.value;
-    var p = this.data.productList;
-    if(num!=''){
-      for(var i=0;i<p.length;i++){
-        if(p[i].id==id){
-          priceSum=parseFloat(this.data.price) + parseFloat(p[i].price)
-        }
-      }
-    }
-    else{
-      for (var i = 0; i < p.length; i++) {
-        if (p[i].id == id) {
-          priceSum = parseFloat(this.data.price) - parseFloat(p[i].price)
-        }
-      }      
-    }
-    this.setData({
-      price:priceSum
-    })
-  },
-*/

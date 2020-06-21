@@ -1,11 +1,12 @@
 <scroll-view scroll-y>
   <view class="content">
+
     <view wx:if="{{hasList}}">
-      <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
+      <view class="cart-list" wx:for="{{carts}}" wx:key="index">
         <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
         <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
-        <navigator url="../detail/detail?id={{item.id}}"><image class="cart-thumb" src="{{item.image}}"></image></navigator>
-        <text class="cart-pro-name">{{item.title}}</text>
+        <navigator url="../detail/detail?id={{item.id}}"><image class="cart-thumb" src="{{item.src}}"></image></navigator>
+        <text class="cart-pro-name">{{item.name}}</text>
         <text class="cart-pro-price">￥{{item.price}}</text>
         <view class="cart-count-box">
           <text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
@@ -15,6 +16,7 @@
         <!-- 删除按钮 -->
         <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>
       </view>
+
     <view class="bottom">
       <icon wx:if="{{selectAllStatus}}" type="success_circle" color="#fff" class="total-select" bindtap="selectAll"/>
       <icon wx:else type="circle" color="#fff" class="total-select" bindtap="selectAll"/>
@@ -25,6 +27,7 @@
             </view>
       </view>
     </view>
+
     <view wx:else>
     <view class='cart-no-data'>购物车是空的哦~</view>
     </view>
