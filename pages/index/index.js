@@ -1,7 +1,7 @@
 // pages/index/index.js
 var common = require('../../utils/common.js')
+var that;
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -14,17 +14,41 @@ Page({
     productList:[],
     navList:[]
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    that=this
     let list = common.getProductList()
     let list1= common.getClassList()
     this.setData({
-      productList:list,
+      //productList:list,
       navList: list1
     })
-
+    wx.request({
+      url: 'http://123.56.254.65:8100/productlist',
+      data: {},
+      method: "GET",
+      header: {},
+      success: function (res) {
+        //console.log(res.data);
+        that.setData({
+          productList: res.data,
+        })
+      }
+    });
+    function getProductList() {
+      let list = [];
+      for (var i = 0; i < productList.length; i++) {
+        let obj = {};
+        obj.id = productList[i].id;
+        obj.name = productList[i].name;
+        obj.price = productList[i].price;
+        obj.src = productList[i].src;
+        obj.classid = productList[i].classid;
+        list.push(obj);
+      }
+      return list;
+    }
   },
 })

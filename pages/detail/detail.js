@@ -1,5 +1,6 @@
 // pages/detail/detail.js
 var common = require('../../utils/common.js')
+var that;
 Page({
 
   /**
@@ -16,8 +17,11 @@ Page({
       src4: "/images/xigua4.jpg",
       src5: "/images/xigua1.jpg",
       src6: "/images/xigua2.jpg",
-    }
+    },
+    pro:[]
   },
+
+
   addCar(){
     let product = this.data.product
     wx.setStorageSync(product.name, product)
@@ -33,12 +37,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let id = options.id
-    let result = common.getProductDetail(id)
-    if(result.code == '200'){
-      this.setData({
-        product:result.product
-      })
-    }
+    that=this;
+    let id = options.name
+    console.log(id);
+    wx.request({
+      url: 'http://123.56.254.65:8100/product/' + id ,
+      data: {},
+      method: "GET",
+      header: {},
+      success: function (res) {
+        //console.log(res.data);
+        that.setData({
+          pro: res.data,
+        })
+      }
+    });
+    
   }
 })

@@ -6,7 +6,7 @@
         <video src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" controls="true"></video>
       </swiper-item>
       <swiper-item>
-        <image src="{{product.src1}}"></image>
+        <image src="{{pro.src1}}"></image>
       </swiper-item>
       <swiper-item>
         <image src="{{product.src2}}"></image>
@@ -17,8 +17,9 @@
     </swiper>
   </view>
   <view class="info">
-      <text class="name">{{product.name}}</text>
-      <text class="price">¥{{product.price}}元</text>
+      <text class="name">{{pro[0]}}</text>
+      <text class="price">¥{{pro[1]}}元</text>
+      <text class="re">{{pro[9]}}件</text>
   </view>
   <text class="title">产品详情介绍</text>
   <view class="wrap">

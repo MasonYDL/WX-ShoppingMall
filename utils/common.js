@@ -180,6 +180,23 @@ function getProductList() {
   return list;
 }
 
+
+function getpro(id) {
+  var data1;
+  wx.request({
+    url: 'http://123.56.254.65:8100/product/' + id,
+    data: {},
+    method: "GET",
+    header: {
+    },
+    success: function (res) {
+      //console.log(res.data);
+      data1 = res.data
+    }
+  })
+  return data1;
+}
+
 function getClassList() {
   let list=[];
   for(var i=0; i<classList.length;i++)
@@ -212,5 +229,6 @@ function getProductDetail(productId) {
 module.exports = {
   getProductList: getProductList,
   getProductDetail: getProductDetail,
-  getClassList:getClassList
+  getClassList:getClassList,
+  getpro:getpro
 }
